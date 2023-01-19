@@ -1,0 +1,4 @@
+
+
+
+Feature 모듈에는 viewModel에 관련된 로직들이 있어 이것도 Presentation 계층에 속한다고 볼 수 있다.
