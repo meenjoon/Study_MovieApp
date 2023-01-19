@@ -21,11 +21,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 
+
+
 /**
  * Executes business logic in its execute method and keep posting updates to the result as
  * [Result<R>].
  * Handling an exception (emit [Result.Error] to the result) is the subclasses's responsibility.
  */
+
+
+//위에 있는 FlowUseCase랑 다를바 없어보이는데, 이것은 데이터 모델로만 매개변수를 받는 것 같다.
 abstract class NoParamFlowUseCase<R>(private val coroutineDispatcher: CoroutineDispatcher) {
     operator fun invoke(): Flow<Result<R>> = execute()
         .catch { e -> emit(Result.Error(Exception(e))) }
