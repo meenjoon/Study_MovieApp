@@ -5,6 +5,8 @@ import com.kennethss.movie.domain.movie.director.Director
 import com.kennethss.movie.domain.movie.preview.Preview
 import java.time.LocalDate
 
+
+// 도메인 계층의 Movie 데이터 모델이다. 도메인 계층의 데이터 모델은 바뀌지 않고 고유하다.
 data class Movie(
     val id: Int,
     val title: String,
