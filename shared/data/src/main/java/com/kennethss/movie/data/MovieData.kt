@@ -8,6 +8,8 @@ import com.kennethss.movie.data.preview.PreviewData
 import com.kennethss.movie.data.preview.toDomain
 import com.kennethss.movie.domain.movie.movie.Movie
 
+
+//데이터 계층에서의 MovieData 대한 데이터 모델이다.  데이터를 받아올 때 쓰고 고유하지 않다. 고유한 것은 domain 계층의 Movie 데이터 모델이다.
 data class MovieData(
     val id: Int,
     val title: String,
