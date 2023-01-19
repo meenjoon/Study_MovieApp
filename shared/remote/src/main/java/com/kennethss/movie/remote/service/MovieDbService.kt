@@ -6,6 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+//remote 계층의 MovieDbService이다. DB를 retrofit을 통해 처음으로 가져오는 인터페이스이다.
+
 interface MovieDbService {
     @GET("3/movie/{movieId}")
     suspend fun getMovieDetail(
