@@ -6,6 +6,7 @@ import com.kennethss.movie.remote.response.popular.IMAGE_BASE_HOST
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+// @Serialized와 @SerialName을 이용해서 원하는 키와 매핑하는 데이터모델 클래스이다.
 @Serializable
 data class Cast(
     @SerialName("adult")
