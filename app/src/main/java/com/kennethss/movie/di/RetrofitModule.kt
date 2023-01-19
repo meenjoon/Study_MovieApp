@@ -19,11 +19,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RetrofitModule {
+object RetrofitModule { //retrofit은 외부라이브러리 이기 때문에 constructor-inject를 해줄 수 없기 때문에 @Module 어노테이션을 이용한다.
 
     @Provides
     @Singleton
-    fun provideOkHttpClient() = OkHttpClient
+    fun provideOkHttpClient() = OkHttpClient //외부 라이브러리인 OKHttpClient 인스턴스를 제공
         .Builder()
         .addInterceptor(
             HttpLoggingInterceptor()
@@ -36,9 +36,10 @@ object RetrofitModule {
         .build()
 
     @OptIn(ExperimentalSerializationApi::class)
+
     @Provides
     @Singleton
-    fun provideChoShopService(client: OkHttpClient): MovieDbService {
+    fun provideChoShopService(client: OkHttpClient): MovieDbService { //외부라이브러리인 OKHttpClient을 주입을 받고 MovieDbService라는 타입의 인스턴스를 제공한다.
         val contentType = "application/json".toMediaType()
         val factory = Json {
             isLenient = true
