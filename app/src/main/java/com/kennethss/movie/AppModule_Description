@@ -1,0 +1,14 @@
+
+먼저 app모듈에는 UI에 관련된 것들과 Hilt 설정에 관련된 파일이 있다.
+MainActivity가 있고 기존의 xml을 통해 레이아웃을 구성하는게 아닌 jetpack compose를 이용하여 코틀린 코드로 선언하여 레이아웃을 구성하였다.
+
+Hilt를 사용하기 위한 설정으로 @HiltAndroidApp 어노테이션으로 Hilt 코드 생성을 시작하는 클래스가 있다.
+
+또한 Construct-inject가 불가할 때 사용하는 @Module,@InstalIn 어노테이션을 통하여 바인딩 정보를 제공한다
+이때 @Module,@InstalIn을 이용하는 경우는 두가지이다.
+
+첫번째 @Binds 어노테이션을 사용하는 경우에는 인터페이스를 constructor-inject 하기위해 한다.
+@Binds를 이용하지 않고 constructor-inject를 하게되면 인터페이스의 어느 구현체가 객체로 사용될 지 모르기 때문에 @Binds를 통하여 리턴타입은 어떤 타입의 인스턴스를 제공하는지 파라미터는 어떤 타입의 객체를 주입받을지 알려준다.(함수 이름 시작은 binds로 시작함)
+
+두번째 @Provides 어노테이션을 사용하는 경우에는 External library(Retrofit, OKHttpClient, Room, Coroutine등)
+외부 라이브러리를 사용하는 경우 construct-inject 할 수 없기 때문에 이럴 때 해당된다. 리런타입은 어떤 타입의 인스턴스를 제공하는지 알려주고 파라미터는 어떤 타입의 객체를 주입받을지 알려준다.(함수 이름 시작은 provides라고 시작함)
