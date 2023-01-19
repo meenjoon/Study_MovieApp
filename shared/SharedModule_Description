@@ -1,0 +1,12 @@
+
+
+shared모듈에는 data,domain,remote 모듈이 들어가 있다.
+
+그 중 remote 모듈을 살펴보게 되면
+전반적으로 retrofit2와 OkHttp3를 이용을 하여 직접적으로 데이터를 가져오는 부분을 담당한다고 보면 된다. 이 부분은 어떻게 보면 data모듈의 한 일부분으로도 생각 할 수 있다.
+
+그리고 data 모듈을 살펴보게 되면 
+Repository 인터페이스를 구현한 구현체라고 볼 수 있다. 또한 DB로부터 받아온 데이터 모델을 Mapper를 통해 Domain 계층의 데이터로 넘기는 역할을 하는것을 볼 수 있다.
+
+그리고 domain 모듈을 살펴보게 되면
+비즈니스 포직에 필요한(실제로 UI에 적용할) Data Model과 UseCase와 Repository 인터페이스 역할을 하는 것을 볼 수 있다.
